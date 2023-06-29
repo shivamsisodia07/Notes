@@ -19,7 +19,7 @@ const MyNotes = () => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        await axios.delete(`/api/notes/${id}`, config);
+        await axios.delete(process.env.REACT_APP_BASE_URL+`/api/notes/${id}`, config);
         alert('Note successfully deleted');
         getNotes();
       } catch (error) {
@@ -32,7 +32,7 @@ const MyNotes = () => {
     const config = {
       headers: { Authorization: `Bearer ${user.token}` }
     };
-    const { data } = await axios.get(`/api/notes`, config);
+    const { data } = await axios.get(process.env.REACT_APP_BASE_URL+`/api/notes`, config);
     // console.log(_id);
     // console.log(data);
     setData(data);

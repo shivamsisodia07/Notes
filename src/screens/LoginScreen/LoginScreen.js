@@ -25,7 +25,7 @@ const LoginScreen = () => {
                 }
             };
             setLoading(true);
-            const { data } = await axios.post('/api/users/login', { email, pass }, config);
+            const { data } = await axios.post(process.env.REACT_APP_BASE_URL+'/api/users/login', { email, pass }, config);
             // console.log(data);
             localStorage.setItem('userInfo', JSON.stringify(data));
             setEmail("");

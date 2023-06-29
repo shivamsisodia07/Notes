@@ -28,7 +28,7 @@ const EditNote = () => {
         },
       };
       await axios.put(
-        `/api/notes/${noteId}`,
+        process.env.REACT_APP_BASE_URL+`/api/notes/${noteId}`,
         { title, category, content },
         config
       );
@@ -47,7 +47,7 @@ const EditNote = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/notes/${noteId}`, config);
+      const { data } = await axios.get(process.env.REACT_APP_BASE_URL+`/api/notes/${noteId}`, config);
       //console.log(data);
       setTitle(data.title);
       setCategory(data.category);
