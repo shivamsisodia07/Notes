@@ -59,9 +59,11 @@ const EditNote = () => {
     }
   }
   useEffect(() => {
-    if (user) {
+   if(user){
       fetchnote();
-    }
+      console.log("api called");
+   }
+    
   }, [])
   if (!user) {
     return (<Navigate to="/login" />);

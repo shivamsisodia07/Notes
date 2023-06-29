@@ -91,7 +91,7 @@ const MyNotes = () => {
                         {note.title}
                       </span>
                       <div key={`${idx}`}>
-                        <Link to={`/api/notes/${note._id}`} key={`${idx}`}>
+                        <Link to="/editnote" key={`${idx}`}>
                           <Button onClick={() => {
                             localStorage.setItem(
                               "noteId",

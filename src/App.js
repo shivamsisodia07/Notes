@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/register" element={<RegisterScreen />} />
           <Route exact path="/mynotes" element={<MyNotes />} />
           <Route exact path="/createnote" element={<AddNote />} />
-          <Route exact path={`/api/notes/${noteId}`} element={<EditNote />} />
+          <Route path="/editnote" element={<EditNote />} />
         </Routes>
       </main>
 
