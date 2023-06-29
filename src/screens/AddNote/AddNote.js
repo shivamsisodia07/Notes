@@ -23,7 +23,7 @@ const AddNote = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios.post(process.env.REACT_APP_BASE_URL+'/api/notes/create', { title, category, content }, config);
+      await axios.post(process.env.REACT_APP_BASE_URL+'api/notes/create', { title, category, content }, config);
       // console.log(data);
       alert("Successfully Added");
       navigate('/mynotes');

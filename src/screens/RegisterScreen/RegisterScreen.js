@@ -35,7 +35,7 @@ const RegisterScreen = () => {
           },
         };
         setLoading(true);
-        const { data } = await axios.post(process.env.REACT_APP_BASE_URL+'/api/users', { name, email, pass, pic }, config);
+        const { data } = await axios.post(process.env.REACT_APP_BASE_URL+'api/users', { name, email, pass, pic }, config);
         // console.log(data);
         setLoading(false);
         localStorage.setItem('userInfo', JSON.stringify(data));
