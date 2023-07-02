@@ -16,23 +16,23 @@ const LandingPage = () => {
       <div className="main">
         <Container>
           <Row>
-            <div className="intro-text">
+            <div className="intro-text ">
               <div>
-                <h1 className="title">Welcome to Note Zipper</h1>
+                <h1 className="title ">Welcome to Memory Saver</h1>
                 <p className="subtitle">One Safe place for all your notes</p>
               </div>
               {localStorage.getItem("userInfo") === null && (
                 <div className="buttonContainer">
                   <Link to="/login">
-                    <Button size="lg" className="landingButton">
+                    <Button size="lg" className=" btn btn-primary landingButton">
                       Login
                     </Button>
                   </Link>
                   <Link to="/register">
                     <Button
                       size="lg"
-                      className="landingButton"
-                      variant="outline-primary"
+                      className="btn btn-primary landingButton"
+                      // variant="outline-primary"
                     >
                       Signup
                     </Button>

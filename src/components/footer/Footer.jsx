@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 const Footer = () => {
   return (
     <footer
+    className='bg-primary text-white text-center py-1'
       style={{
         width: '100%',
         position: 'relative',
@@ -12,7 +13,7 @@ const Footer = () => {
         justifyContent: 'center'
       }}
     >
-      <Container>
+      <Container >
         <Row>
           <Col className="text-center py-3">
             Copyright &copy;NoteZipper

@@ -1,9 +1,15 @@
 .title {
-  font-size: 45px;
+  font-size: 61px;
+    font-weight: 500;
+    font-family: cursive;
+    color: #8c1f1f;
+    text-shadow: 1px -1px 1px #ffffff;
 }
 .subtitle {
   font-size: 25px;
   padding-top: 10px;
+     color: #476159;
+  font-family: monospace;
 }
 .intro-text {
   width: 100%;
@@ -13,7 +19,7 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
-  background-image: url("../../background1.jpg");
+  background-image: url("../../../build/static/media/background4.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -24,8 +30,8 @@
 }
 
 .landingbutton {
-  width: 300px;
-  height: 55px;
+  /* width: 300px;
+  height: 55px; */
 }
 
 @media only screen and (min-width: 1200px) {

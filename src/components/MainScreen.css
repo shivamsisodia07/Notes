@@ -15,6 +15,12 @@
   padding: 5px 10px;
 }
 
+.logo{
+  font-size: 18px;
+  font-weight: 800;
+  font-family: revert;
+  text-shadow: 2px 0px 2px blue;
+}
 @media only screen and (min-width: 1200px) {
 }
 
