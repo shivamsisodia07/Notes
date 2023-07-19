@@ -48,7 +48,7 @@ const LoginScreen = () => {
     return (
         <>
             <MainScreen title="LOGIN">
-                <div className="loginContainer">
+                <div className="loginContainer ">
                     {error && <ErrorMessage variant="danger">{"Invalid Credentials"}</ErrorMessage>}
                     {loading && <Loading/>}
                     <Form onSubmit={submitHandler}>
