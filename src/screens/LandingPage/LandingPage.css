@@ -19,7 +19,7 @@
   min-height: 93vh;
   display: flex;
   align-items: center;
-  background-image: url("../../../build/static/media/background4.jpg");
+  /* background-image: url("../../../build/static/media/background4.jpg"); */
   background-position: center;
   background-size: cover;
 }
