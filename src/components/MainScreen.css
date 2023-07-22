@@ -12,7 +12,6 @@
   padding: 10px 0;    
   /* background: ghostwhite; */
   background-image: url(../../public/assets/bg5.jpg);
-  
 }
 .row {
   display: flex;
@@ -25,7 +24,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .page {
   width: 100%;
   height: fit-content;
