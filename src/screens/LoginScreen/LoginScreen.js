@@ -9,6 +9,7 @@ import ErrorMessage from '../../components/ErrorMessage';
 
 const LoginScreen = () => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
+    // const user=true;
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");

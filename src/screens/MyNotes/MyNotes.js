@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { Accordion, Badge, Button, Card, useAccordionButton } from 'react-bootstrap';
-import { Link,Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import {
+  Accordion,
+  Badge,
+  Button,
+  Card,
+  useAccordionButton,
+} from "react-bootstrap";
+import { Link, Navigate } from "react-router-dom";
+import MainScreen from "../../components/MainScreen";
 
-import MainScreen from '../../components/MainScreen';
-import axios from 'axios';
+import axios from "axios";
 
 const MyNotes = () => {
- 
   const user = JSON.parse(localStorage.getItem("userInfo"));
- 
-
+  const [q, setQ] = useState("");
+  const[filterdata,setfilterdata]=useState([]);
   const [data, setData] = useState([]);
   const deleteHandle = async (id) => {
     if (window.confirm("Are you sure?")) {
@@ -19,88 +24,132 @@ const MyNotes = () => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        await axios.delete(process.env.REACT_APP_BASE_URL+`api/notes/${id}`, config);
-        alert('Note successfully deleted');
+        await axios.delete(
+          process.env.REACT_APP_BASE_URL + `api/notes/${id}`,
+          config
+        );
+        alert("Note successfully deleted");
         getNotes();
       } catch (error) {
-        alert('Invalid  Action');
+        alert("Invalid  Action");
         console.log(error);
       }
     }
+  };
+
+  const dataFilter = (q,data) => {
+
+    const newData = data?.filter((item) => {
+      return item?.title?.toLowerCase().includes(q.toLowerCase());
+    });
+    setfilterdata(newData);
+    console.log(newData);
   }
   const getNotes = async () => {
+    
     const config = {
-      headers: { Authorization: `Bearer ${user.token}` }
+      headers: { Authorization: `Bearer ${user.token}` },
     };
-    const { data } = await axios.get(process.env.REACT_APP_BASE_URL+`api/notes`, config);
+    const { data } = await axios.get(
+      process.env.REACT_APP_BASE_URL + `api/notes`,
+      config
+    );
     // console.log(_id);
     // console.log(data);
+    // console.log(filterdata);
+    setfilterdata(data);
     setData(data);
   };
 
   function CustomToggle({ children, eventKey }) {
     const decoratedOnClick = useAccordionButton(eventKey);
-
     return (
       <button
         type="button"
-        style={{ backgroundColor: "white" }}
+        style={{ backgroundColor: " #ffffff2e" }}
         onClick={decoratedOnClick}
       >
         {children}
       </button>
     );
   }
- 
+
   useEffect(() => {
-    if(user){
-    getNotes();
+    if (user) {
+      getNotes();
     }
   }, []);
-  if(!user){
-    return (<Navigate to="/login" />);
-  }
-  else{
- 
-  return (
-    <MainScreen title={`Welcome back ${user.name}...`}>
-      <Link to="/createnote">
-        <Button style={{ marginBottom: 6, marginLeft: 10 }} size="lg">
-          Create New Note
-        </Button>
-      </Link>
-      {
-        data.map((note, idx) => {
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  } else {
+    return (
+      <MainScreen title={`Welcome back ${user.name}...`}>
+        <Link to="/createnote">
+          <Button style={{ marginBottom: 6, marginLeft: 10 }} size="lg">
+            Create New Note
+          </Button>
+        </Link>
+        <div className="search-wrapper">
+          <label htmlFor="search-form">
+            <input
+              type="search"
+              name="search-form"
+              id="search-form"
+              className="search-input"
+              placeholder="Search for..."
+              value={q}
+              onChange={(e) => {
+                setQ(e.target.value);
+              
+                // console.log(q);
+                } 
+              }
+              onKeyDown={(e) => {
+                console.log(e.key);
+                if(e.key=="Enter"){
+                    dataFilter(q,data);
+                  }
+              }}
+            />
+            {/* <span className="sr-only">Search</span> */}
+          </label>
+          <button className="search_btn" onClick={()=>{
+            dataFilter(q,data);
+            }   
+          } >search</button>
+        </div>
+        {filterdata?.map((note, idx) => {
           return (
-            <Accordion defaultActiveKey={`${idx}`}>
-              <Accordion.Item eventKey={`${idx}`}>
-                <Card key={`${idx}`}>
-                  <CustomToggle eventKey={`${idx}`}>
-                    <Card.Header style={{ display: "flex" }} key={`${idx}`}>
+            <Accordion defaultActiveKey={note._id}>
+              <Accordion.Item eventKey={note._id}>
+                <Card key={note._id}>
+                  <CustomToggle eventKey={note._id} style={{backgroundColor: "rgba(255, 255, 255, 0.18)",
+  border: "none"}} >
+                    <Card.Header key={note._id}>
                       <span
-                        style={{
-                          color: "black",
-                          textDecoration: "none",
-                          cursor: "pointer",
-                          flex: 1,
-                          width: "100%",
-                          alignSelf: "center",
-                          fontSize: 18,
-                        }} key={`${idx}`}
+                      className="card_title"
+                       
+                        key={note._id}
                       >
                         {note.title}
                       </span>
-                      <div key={`${idx}`}>
-                        <Link to="/editnote" key={`${idx}`}>
-                          <Button onClick={() => {
-                            localStorage.setItem(
-                              "noteId",
-                              JSON.stringify(note._id)
-                            );
-                          }} key={`${idx}`}>Edit</Button>
+                      <div key={note._id}>
+                        <Link to="/editnote" key={note._id}>
+                          <Button
+                            onClick={() => {
+                              localStorage.setItem(
+                                "noteId",
+                                JSON.stringify(note._id)
+                              );
+                            }}
+                            key={note._id}
+                          >
+                            Edit
+                          </Button>
                         </Link>
                         <Button
-                          key={`${idx}`}
+                          key={note._id}
                           variant="danger"
                           className="mx-2"
                           onClick={() => deleteHandle(note._id)}
@@ -110,7 +159,7 @@ const MyNotes = () => {
                       </div>
                     </Card.Header>
                   </CustomToggle>
-                  <Accordion.Collapse eventKey={`${idx}`}>
+                  <Accordion.Collapse eventKey={note._id}>
                     <Card.Body key={`${idx}`}>
                       <h4 key={`${idx}`}>
                         <Badge
@@ -134,11 +183,10 @@ const MyNotes = () => {
               </Accordion.Item>
             </Accordion>
           );
-        })
-      }
-    </MainScreen>
-  );
-    }
-}
+        })}
+      </MainScreen>
+    );
+  }
+};
 
-export default MyNotes
+export default MyNotes;

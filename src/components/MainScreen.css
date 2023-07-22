@@ -1,12 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
 
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: end;
+}
 .mainback {
   min-height: 93vh;
   display: flex;
-  padding: 10px 0;    background: antiquewhite;
+  padding: 10px 0;    
+  /* background: ghostwhite; */
+  background-image: url(../../public/assets/bg5.jpg);
+  
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px; 
+  margin-left: 0px;
+  justify-content: center;
+}
+.nav_container{
+  display: flex;
+  justify-content: space-between;
+}
+
 .page {
   width: 100%;
+  height: fit-content;
+  /* border: 1px solid black; */
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 41px 20px 20px 20px;
+  background-color: #f5f5f7bf;
+  border-radius: 10px;
 }
 .heading {
   font-size: 30px;
@@ -18,12 +45,97 @@
   font-weight: 800;
   font-family: serif;
 }
-
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgb(0 0 0);
+}
 .logo{
   font-size: 18px;
   font-weight: 800;
   font-family: revert;
   text-shadow: 2px 0px 2px blue;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.search-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.search-input{
+  width: 20rem;
+  padding: 11px;
+  height: 6vh;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 20px;
+}
+
+.search_btn{
+  border: none;
+  border-radius: 20px;
+  height: 6vh;
+  width: 5rem;
+  background: #0a3e6b;
+  color: white;
+  margin-left: 1px;
+
+}
+.search_btn:hover{
+  background: #105b9c;
+}
+button:focus {
+  outline: none; 
+  outline: none;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff !important;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin: 10px;
+  font-family: math;
+  font-size: 15px;
+  
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card_title{
+ 
+  display: flex;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex: 1 1;
+  width: 100%;
+  justify-content: space-between;
+  align-self: start;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: math;
+
+}
+
+.card 
+button, select {
+  text-transform: none;
+  border: none;
 }
 @media only screen and (min-width: 1200px) {
 }
