@@ -10,11 +10,12 @@ import { Link, Navigate } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
 
 import axios from "axios";
-
+const link =
+  "https://opendocs-global.api.airstore.io/v1/get/_/e4f9480d-f7ae-5311-85cf-e9f494950000/a500e6d94d985526bf9fdb818b9e569275d74c9c8ddc52e20c000dee793f6a31.jpg";
 const MyNotes = () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   const [q, setQ] = useState("");
-  const[filterdata,setfilterdata]=useState([]);
+  const [filterdata, setfilterdata] = useState([]);
   const [data, setData] = useState([]);
   const deleteHandle = async (id) => {
     if (window.confirm("Are you sure?")) {
@@ -37,16 +38,14 @@ const MyNotes = () => {
     }
   };
 
-  const dataFilter = (q,data) => {
-
+  const dataFilter = (q, data) => {
     const newData = data?.filter((item) => {
       return item?.title?.toLowerCase().includes(q.toLowerCase());
     });
     setfilterdata(newData);
     console.log(newData);
-  }
+  };
   const getNotes = async () => {
-    
     const config = {
       headers: { Authorization: `Bearer ${user.token}` },
     };
@@ -101,37 +100,50 @@ const MyNotes = () => {
               value={q}
               onChange={(e) => {
                 setQ(e.target.value);
-              
+
                 // console.log(q);
-                } 
-              }
+              }}
               onKeyDown={(e) => {
                 console.log(e.key);
-                if(e.key=="Enter"){
-                    dataFilter(q,data);
-                  }
+                if (e.key == "Enter") {
+                  dataFilter(q, data);
+                }
               }}
             />
             {/* <span className="sr-only">Search</span> */}
           </label>
-          <button className="search_btn" onClick={()=>{
-            dataFilter(q,data);
-            }   
-          } >search</button>
+          <button
+            className="search_btn"
+            onClick={() => {
+              dataFilter(q, data);
+            }}
+          >
+            search
+          </button>
         </div>
+        <button
+          className="SeeAll_btn"
+          onClick={() => {
+            setfilterdata(data);
+          }}
+        >
+          See All
+        </button>
+
         {filterdata?.map((note, idx) => {
           return (
             <Accordion defaultActiveKey={note._id}>
               <Accordion.Item eventKey={note._id}>
                 <Card key={note._id}>
-                  <CustomToggle eventKey={note._id} style={{backgroundColor: "rgba(255, 255, 255, 0.18)",
-  border: "none"}} >
+                  <CustomToggle
+                    eventKey={note._id}
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.18)",
+                      border: "none",
+                    }}
+                  >
                     <Card.Header key={note._id}>
-                      <span
-                      className="card_title"
-                       
-                        key={note._id}
-                      >
+                      <span className="card_title" key={note._id}>
                         {note.title}
                       </span>
                       <div key={note._id}>
@@ -172,7 +184,19 @@ const MyNotes = () => {
                         </Badge>
                       </h4>
                       <blockquote className="blockquote mb-0" key={`${idx}`}>
-                        <p>{note.content}</p>
+                        <div class="content_images">
+                           
+                        <img src={link} /> 
+                        <img src={link} /> 
+                        <img src={link} /> 
+                        <img src={link} /> 
+                        <img src={link} /> 
+                        <img src={link} /> 
+                       
+                            
+                        </div>
+
+                        <p className="content_text" >{note.content}</p>
                         <footer className="blockquote-footer" key={`${idx}`}>
                           Created on {note.createdAt.substring(0, 10)}
                         </footer>

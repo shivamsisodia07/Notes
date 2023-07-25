@@ -11,7 +11,7 @@
   display: flex;
   padding: 10px 0;    
   /* background: ghostwhite; */
-  background-image: url(../../public/assets/bg5.jpg);
+  background-image: url(https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80);
 }
 .row {
   display: flex;
@@ -89,6 +89,41 @@ button:focus {
   outline: none; 
   outline: none;
 }
+.SeeAll_btn{
+  border: none;
+  border-radius: 20px;
+  height: 5vh;
+  font-size: 15px;
+  width: 5rem;
+  background: #0a3e6b;
+  color: white;
+  margin-left: 10px;
+
+}
+
+
+.content_images {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.content_images img {
+  margin: 2px;
+  vertical-align: middle;
+  width: 100%;
+  max-width: 17rem;
+}
+.content_text{
+  display: flex;
+  justify-content: center;
+  padding-inline: 2rem;
+}
+
+
+
 .card {
   position: relative;
   display: flex;
