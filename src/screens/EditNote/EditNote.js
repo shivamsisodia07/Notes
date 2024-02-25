@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate,Navigate } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
-import './EditNote.css';
+
 
 const EditNote = () => {
 
@@ -71,7 +71,7 @@ const EditNote = () => {
   else {
 
     return (
-      <MainScreen title="Update a Note">
+      <MainScreen title="Update a Task">
         <div className="mainEditNote">
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="title">
@@ -108,7 +108,7 @@ const EditNote = () => {
                 value={content}
               />
             </Form.Group>
-            <Button variant="primary" size="lg" type="submit">
+            <Button variant="primary" size="md" type="submit">
               EDIT
             </Button>
           </Form>

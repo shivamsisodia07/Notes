@@ -85,8 +85,8 @@ const MyNotes = () => {
     return (
       <MainScreen title={`Welcome back ${user.name}...`}>
         <Link to="/createnote">
-          <Button style={{ marginBottom: 6, marginLeft: 10 }} size="lg">
-            Create New Note
+          <Button style={{ marginBottom: 6, marginLeft: 10 }} size="md">
+            Create New Tasks
           </Button>
         </Link>
         <div className="search-wrapper">
@@ -180,11 +180,11 @@ const MyNotes = () => {
                           text="light"
                           key={`${idx}`}
                         >
-                          Category - {note.category}
+                          {note.category}
                         </Badge>
                       </h4>
                       <blockquote className="blockquote mb-0" key={`${idx}`}>
-                        <div class="content_images">
+                        {/* <div class="content_images">
                            
                         <img src={link} /> 
                         <img src={link} /> 
@@ -194,7 +194,7 @@ const MyNotes = () => {
                         <img src={link} /> 
                        
                             
-                        </div>
+                        </div> */}
 
                         <p className="content_text" >{note.content}</p>
                         <footer className="blockquote-footer" key={`${idx}`}>

@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate, Navigate } from 'react-router-dom';
 import MainScreen from '../../components/MainScreen'
-import './AddNote.css';
 
 const AddNote = () => {
 
@@ -37,7 +36,7 @@ const AddNote = () => {
   else {
 
     return (
-      <MainScreen title="Add a new Note">
+      <MainScreen title="Add a new Task">
         <div className="mainAddNote">
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="title">
@@ -52,7 +51,7 @@ const AddNote = () => {
               <Form.Label>Content</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Enter content" onChange={(e) => { setContent(e.target.value) }} value={content} />
             </Form.Group>
-            <Button variant="primary" size="lg" type="submit">
+            <Button variant="primary" size="md" type="submit">
               Add
             </Button>
           </Form>

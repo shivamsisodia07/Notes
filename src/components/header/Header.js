@@ -10,7 +10,7 @@ const Header = () => {
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container className='nav_container'>
         <Navbar.Brand>
-          <Link to="/" className='logo'>Memory saver</Link>
+          <Link to="/" className='logo'>Task Master</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -27,7 +27,7 @@ const Header = () => {
                 id="navbarScrollingDropdown"
               >
                 <NavDropdown.Item>
-                  <Link to='/mynotes'>My Notes</Link>
+                  <Link to='/mynotes'>My Tasks</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   onClick={() => {

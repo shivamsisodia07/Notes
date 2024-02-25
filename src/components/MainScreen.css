@@ -10,7 +10,7 @@
   min-height: 93vh;
   display: flex;
   padding: 10px 0;    
-  /* background: ghostwhite; */
+  background-repeat:round ;
   background-image: url(https://images.unsplash.com/photo-1595113316349-9fa4eb24f884?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80);
 }
 .row {
@@ -25,12 +25,13 @@
   justify-content: space-between;
 }
 .page {
+  
+  background-color: rgb(223 247 255 / 22%); 
   width: 100%;
   height: fit-content;
   /* border: 1px solid black; */
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(48, 52, 54, 0.3) 4px 3px 10px 0px, rgba(48, 52, 54, 0.15) 0px 1px 3px 1px;
   padding: 41px 20px 20px 20px;
-  background-color: #f5f5f7bf;
   border-radius: 10px;
 }
 .heading {
@@ -117,9 +118,13 @@ button:focus {
   max-width: 17rem;
 }
 .content_text{
-  display: flex;
-  justify-content: center;
-  padding-inline: 2rem;
+  border-radius: 15px;
+    display: flex;
+    justify-content: start;
+    padding: 10px 10px 10px 20px;
+    font-size: 15px;
+    background: #e5e5e5;
+    border: 1px solid #0000004a;
 }
 
 
@@ -130,7 +135,7 @@ button:focus {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #ffffff !important;
+  background-color: transparent !important;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -145,13 +150,13 @@ button:focus {
   justify-content: space-between;
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgb(10 62 107) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card_title{
  
   display: flex;
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;

@@ -215,6 +215,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  font-weight: 900;
 }
 button {
   border-radius: 0;
@@ -529,7 +530,7 @@ pre code {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1140px;
+    max-width: 900px;
   }
 }
 .row {
@@ -4498,10 +4499,11 @@ input[type="submit"].btn-block {
   margin-left: 1.25rem;
 }
 .card-header {
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgb(175 183 190 / 59%);
+    color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
@@ -9546,7 +9548,7 @@ a.text-dark:hover {
   color: #555 !important;
 }
 .blockquote-footer {
-  color: #999;
+  color: black;
 }
 .table-danger,
 .table-info,
